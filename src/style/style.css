@@ -254,3 +254,71 @@ section p {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+form#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+form#login-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+form#login-form button {
+  background-color: var(--garchomp-yellow);
+  color: var(--garchomp-blue);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+form#login-form button:hover {
+  background-color: var(--garchomp-red);
+  color: white;
+}
+
+#login-msg {
+  color: var(--garchomp-red);
+  font-weight: bold;
+  text-align: center;
+}
+/* === CONTENEDORES PRINCIPALES === */
+
+#app {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+#logout-btn {
+  margin-top: 20px;
+  padding: 8px 12px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#logout-btn:hover {
+  background-color: #e74c3c;
+}

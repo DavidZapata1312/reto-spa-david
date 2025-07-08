@@ -21,9 +21,21 @@ export async function setupUsers() {
 
   const users = await get("http://localhost:3000/users");
 
+  // 🧠 Obtener usuario logueado
+  const currentUser = JSON.parse(localStorage.getItem("loggedUser"));
+  const isAdmin = currentUser?.role === "admin";
+
   users.forEach((user) => {
     const li = document.createElement("li");
     li.classList.add("user-row");
+
+    // 🔐 Si es admin, muestra botones; si no, deja el espacio vacío
+    const actionsHtml = isAdmin
+      ? `
+        <button class="edit-btn" data-id="${user.id}">✏️</button>
+        <button class="delete-btn" data-id="${user.id}">🗑️</button>
+      `
+      : `<span class="no-actions">Sin permisos</span>`;
 
     li.innerHTML = `
       <span><img src="imgs/csgo.jpeg" alt="foto" class="user-avatar"></span>
@@ -33,18 +45,22 @@ export async function setupUsers() {
       <span>${user.enrollNumber}</span>
       <span>${user.dateOfAdmission}</span>
       <span class="actions">
-        <button class="edit-btn" data-id="${user.id}">✏️</button>
-        <button class="delete-btn" data-id="${user.id}">🗑️</button>
+        ${actionsHtml}
       </span>
     `;
-
     ul.appendChild(li);
   });
 
-  // Evento para eliminar usuario
+  // Eventos click
   ul.addEventListener("click", async (e) => {
     const id = e.target.dataset.id;
 
+    // 🔒 Verificación extra de rol por si intentan usar el DOM o consola
+    if (!isAdmin) {
+      return Swal.fire("Sin permisos", "No puedes hacer esta acción", "error");
+    }
+
+    // 🗑️ Eliminar
     if (e.target.classList.contains("delete-btn")) {
       Swal.fire({
         title: "¿Estás seguro?",
@@ -67,7 +83,7 @@ export async function setupUsers() {
       });
     }
 
-    // Evento para editar usuario
+    // ✏️ Editar
     if (e.target.classList.contains("edit-btn")) {
       const user = users.find((u) => u.id == id);
 
@@ -86,11 +102,11 @@ export async function setupUsers() {
         cancelButtonText: "Cancelar",
         preConfirm: () => {
           return {
-            name: document.getElementById("swal-name").value,
-            email: document.getElementById("swal-email").value,
-            phone: document.getElementById("swal-phone").value,
-            enrollNumber: document.getElementById("swal-enroll").value,
-            dateOfAdmission: document.getElementById("swal-date").value,
+            name: document.getElementById("swal-name").value.trim(),
+            email: document.getElementById("swal-email").value.trim(),
+            phone: document.getElementById("swal-phone").value.trim(),
+            enrollNumber: document.getElementById("swal-enroll").value.trim(),
+            dateOfAdmission: document.getElementById("swal-date").value
           };
         }
       });

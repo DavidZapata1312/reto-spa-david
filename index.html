@@ -2,34 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPA</title>
-    <link rel="stylesheet" href="src/style/style.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPA</title>
+  <link rel="stylesheet" href="src/style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-
+  <!-- Contenedor general de la app (solo se muestra si hay login) -->
+  <div id="app">
     <aside>
-        <h1> SPA </h1>
-        <img src="imgs/csgo.jpeg" alt="gato go">
-        <nav>
-            <a href="/users" data-link>Usuarios</a>
-            <a href="/newuser" data-link>Nuevo usuario</a>
-            <a href="/about" data-link>Acerca de usarios</a>
-        </nav>
+      <h1>SPA</h1>
+      <img src="imgs/csgo.jpeg" alt="gato go" />
+      <nav>
+        <a href="/users" data-link>Usuarios</a>
+        <a href="/newuser" data-link>Nuevo usuario</a>
+        <a href="/about" data-link>Acerca de usuarios</a>
+      </nav>
+      <button id="logout-btn">Cerrar sesión</button>
+      <p id="user-info"></p>
     </aside>
 
-
     <main id="content"></main>
+  </div>
 
+  <!-- Contenedor para el login (solo visible si no hay login) -->
+  <div id="login-content"></div>
 
+  <script type="module" src="./src/js/script.js"></script>
 </body>
-<script src="./src/js/script.js">
-
-</script>
 
 </html>

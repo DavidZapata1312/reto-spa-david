@@ -3,18 +3,22 @@
     {
       "id": "380e",
       "name": "carlos",
-      "enrollNumber": "212324",
-      "phone": "123412",
       "email": "mail@mail",
-      "dateOfAdmission": "2025-03-12"
+      "password": "1234",
+      "phone": "123412",
+      "enrollNumber": "212324kjjj",
+      "dateOfAdmission": "2025-03-12",
+      "role": "admin"
     },
     {
-      "id": "23c2",
-      "name": "ponche",
-      "enrollNumber": "2222",
-      "phone": "3333",
-      "email": "mail@mail",
-      "dateOfAdmission": "2022-10-07"
+      "id": "380f",
+      "name": "juanita",
+      "email": "juan@mail",
+      "password": "5678",
+      "phone": "555555",
+      "enrollNumber": "312321s",
+      "dateOfAdmission": "2025-03-12",
+      "role": "user"
     }
   ]
 }

@@ -13,17 +13,21 @@ export function setupNewUser() {
       enrollNumber: document.getElementById("enrollNumber").value.trim(),
       phone: document.getElementById("phone").value.trim(),
       email: document.getElementById("email").value.trim(),
+      password: document.getElementById("password").value.trim(),  // ✅ AQUI VA
       dateOfAdmission: document.getElementById("dateOfAdmission").value,
     };
 
     try {
-      await post("http://localhost:3000/users", newUser);
+      const res = await post("http://localhost:3000/users", newUser);
+      console.log("Respuesta del POST:", res);
       msg.textContent = "✅ Usuario agregado exitosamente";
       msg.style.color = "green";
       form.reset();
     } catch (err) {
+      console.error("Error en el POST:", err); // 👈 esto te muestra si falló
       msg.textContent = "❌ Error al agregar usuario";
       msg.style.color = "red";
     }
   });
 }
+
