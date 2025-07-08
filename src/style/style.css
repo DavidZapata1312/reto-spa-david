@@ -322,3 +322,9 @@ form#login-form button:hover {
 #logout-btn:hover {
   background-color: #e74c3c;
 }
+#user-info {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #34495e;
+  font-weight: bold;
+}
