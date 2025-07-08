@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "380e",
+      "name": "carlos",
+      "enrollNumber": "212324",
+      "phone": "123412",
+      "email": "mail@mail",
+      "dateOfAdmission": "2025-03-12"
+    },
+    {
+      "id": "23c2",
+      "name": "ponche",
+      "enrollNumber": "2222",
+      "phone": "3333",
+      "email": "mail@mail",
+      "dateOfAdmission": "2022-10-07"
+    }
+  ]
+}
