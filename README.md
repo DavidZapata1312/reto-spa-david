@@ -82,7 +82,7 @@ const user = JSON.parse(localStorage.getItem("loggedUser"));
 ```
 Este almacenamiento persiste incluso si se recarga la página, hasta que el usuario cierre sesión.
 
-##🔐 Roles: Admin vs Usuario
+##  🔐 Roles: Admin vs Usuario
 Los usuarios en esta app pueden tener un campo role que define sus permisos:
 
 admin:
